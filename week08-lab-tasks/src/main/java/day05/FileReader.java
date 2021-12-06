@@ -11,7 +11,7 @@ public class FileReader {
         System.out.println(name);
     }
 
-    private String findSmallestTeamDifference(String filename) {
+    public String findSmallestTeamDifference(String filename) {
         try {
             List<String> lines = Files.readAllLines(Paths.get("src/main/resources/" + filename));
             int minDifference = 1000;
@@ -35,7 +35,7 @@ public class FileReader {
             return minName;
         }
         catch (IOException ioe) {
-            throw new IllegalArgumentException("Cannot read file", ioe);
+            throw new IllegalStateException("Cannot read file", ioe);
         }
     }
 }

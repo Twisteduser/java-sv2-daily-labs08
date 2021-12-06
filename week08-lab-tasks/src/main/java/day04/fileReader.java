@@ -12,7 +12,7 @@ public class fileReader {
 
     }
 
-    private int findSmallestTemperature(String filename) {
+    public int findSmallestTemperature(String filename) {
         try {
             List<String> lines = Files.readAllLines(Paths.get("src/main/resources/"+filename));
             int minSpreed = 1000;
@@ -32,7 +32,7 @@ public class fileReader {
             return minDay;
         }
         catch (IOException ioe){
-            throw new IllegalArgumentException("Cannot read file", ioe);
+            throw new IllegalStateException("Cannot read file", ioe);
         }
     }
 }
